@@ -1,6 +1,5 @@
-import React, {Fragment, useState} from "react";
+import React, {useState} from "react";
 import Card from "../UI/Card";
-import classes from './Sidebar.module.css'
 
 const SideBar =()=>{
     const [stocks, setStocks] = useState([

@@ -1,38 +1,26 @@
-import React,{Fragment} from "react";
-import classes from './SearchResult.module.css';
-
-
+import  './SearchResult.css';
 const SeachResult =(props)=>{
-    //userId: 1, id: 1, title: 'delectus aut autem', completed: false
     return(
-        <div >
-        {/* <caption className={classes.caption}>Britania</caption> */}
-        <p>Caption</p>
-            <table className={classes.wrap}>
-                
-                <thead className={classes.tbody} >
-                <tr className={classes.th}>
-                    <th style={{width:"200px",padding:"0px"}}>Symbol</th>
-                    <th>Open</th>
-                    <th>High</th>
-                    <th>Low</th>
-                    <th>Close</th>
-                    {/* <thead>open</thead>
-                    <thead>high</thead>
-                    <thead>low</thead>
-                    <thead>close</thead> */}
-
-                </tr>
+        <div>
+            <table className="table table-border ">
+                <thead className="thead-dark space">
+                    <tr>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Open</th>
+                    <th scope="col">High</th>
+                    <th scope="col">Low</th>
+                    <th scope="col">Close</th>
+                    </tr>
                 </thead>
-                <tbody>
-                <tr className={classes.tres}>
-                    <td style={{padding:"20px"}}>Britania</td>
+                <tbody className="tbody">
+                    <tr>
+                    <td>StockName</td>
                     <td>{props.stock.userId}</td>
                     <td>{props.stock.id}</td>
                     <td>{props.stock.title}</td>
-                    <td>dummy_val</td>
-
-                </tr>
+                    <td>12,348.12</td>
+                    </tr>
+                    
                 </tbody>
             </table>
         </div>

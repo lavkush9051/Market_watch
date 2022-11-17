@@ -25,13 +25,16 @@ body {
     list-style: none;
     margin-top: 0;
     max-height: 143px;
-    overflow-y: auto;
     padding-left: 0;
     width: calc(300px + 1rem);
+    position: absolute;
+    background-color: white;
   }
   
   .suggestions li {
     padding: 0.5rem;
+    position: relative;
+    bottom: 0;
   }
   
   .suggestion-active,
@@ -40,10 +43,12 @@ body {
     color: #000000;
     cursor: pointer;
     font-weight: 700;
+    position: relative;
   }
   
   .suggestions li:not(:last-of-type) {
     border-bottom: 1px solid #999;
+    position: relative;
   }
 
   

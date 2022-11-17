@@ -1,0 +1,44 @@
+
+.home{
+    width: 100%;
+   
+   }
+   .home > .row{
+     display: flex;
+     width: 100%;
+     margin-top: 110px;
+     margin-left: 0px;
+   
+   }
+   
+   .home > .row > .card-column{
+     flex:1;
+     margin-left: 40px;
+   
+   }
+   
+   .home > .row > .searcharea-column{
+     flex:7;
+   
+   
+   }
+   
+   .searcharea-column .autocomplete-wrapper{
+     width: 100%;
+     display: flex;
+     text-align: center;
+     justify-content:center;
+     /* padding-left: 100px;
+     padding-right: 100px; */
+   }
+   
+   .searcharea-column .autocomplete-wrapper-table{
+     width: 100%;
+     display: flex;
+     text-align: center;
+     justify-content: center;
+     border-color: blueviolet;
+     border-radius: 20px;
+   
+     }
+   

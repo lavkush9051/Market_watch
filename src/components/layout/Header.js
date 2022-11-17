@@ -1,27 +1,16 @@
-import React, {Fragment} from 'react';
-// import classes from './Header.module.css'
 import "./Header.css"
-import Autocomplete from '../Autocomplete';
+import {Link} from "react-router-dom";
 
 const Header = (props)=> {
     return(
-        
-            <header className="header">
-                
+            <header className="header"> 
                 <ul className='navigations'>
-                    <li>Home</li>
-                    <li>
-                        Admin
+                    <li style={{color:"white"}}>
+                        <a><Link to='/'>Home</Link></a>
                     </li>
+                    
                 </ul>
-                
-                {/* <Autocomplete
-                    suggestions={['TATA STEEL LIMITED','TATA CONSULTENCY SERVICE', 'TATA MOTORS']}
-                    /> */}
-            </header>
-
-        
+            </header>  
     )
 }
-
 export default Header

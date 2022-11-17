@@ -1,0 +1,7 @@
+.row{
+    margin: 100px;
+    justify-content: center;
+}
+.row .update{
+    background-color:blueviolet;
+}

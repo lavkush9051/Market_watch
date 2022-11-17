@@ -1,8 +1,7 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Button from "./UI/Button";
 import './suggestion.css'
-import classes from './Autocomplete.module.css';
 let enteredval = '';
 
 class Autocomplete extends Component {
@@ -141,8 +140,8 @@ class Autocomplete extends Component {
     return (
       
       <form className="input__wrapper" onSubmit={submitHandler}>
-          <input style={{width:"215px"}}
-            type="text"
+          <input style={{width:"315px"}}
+            type="text" placeholder="Serach Stock"
             onChange={onChange}
             onKeyDown={onKeyDown}
             value={userInput}
@@ -150,6 +149,7 @@ class Autocomplete extends Component {
           <Button type="submit" >search</Button>
           {suggestionsListComponent}
       </form>
+
     );
   }
 }
