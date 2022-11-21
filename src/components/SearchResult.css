@@ -1,9 +1,8 @@
 .tbody{
-    height: 50px;
+    height: 98px;
     background-color: #dad6d6;
     display:flexbox;
     align-content: center;
-
 }
 
 .th{
@@ -49,3 +48,14 @@ table.table-border{
     margin-bottom: 20px;
 
   }
+
+.table > tbody{
+    vertical-align: middle;
+}
+tbody, td, tfoot, th, thead, tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    width: 130px;
+    height: 54px;
+}

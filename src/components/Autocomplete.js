@@ -140,7 +140,7 @@ class Autocomplete extends Component {
     return (
       
       <form className="input__wrapper" onSubmit={submitHandler}>
-          <input style={{width:"315px"}}
+          <input style={{width:"415px",borderRadius: "5px"}}
             type="text" placeholder="Serach Stock"
             onChange={onChange}
             onKeyDown={onKeyDown}

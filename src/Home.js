@@ -9,7 +9,6 @@ require("./styles.css");
 let searchedStock = '';
 function Home() {
   const [data, setData] = useState(searchedStock);
-  //console.log(data);
 
   const searchHandler =(val)=>{
     console.log(val);
@@ -20,7 +19,7 @@ function Home() {
       console.log(value)
       searchedStock = value;
       setData(value);
-      //console.log(searchedStock);
+
     })
   }
   return (

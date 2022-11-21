@@ -3,7 +3,7 @@ const SeachResult =(props)=>{
     return(
         <div>
             <table className="table table-border ">
-                <thead className="thead-dark space">
+                <thead className="thead-dark space" style={{height:""}}>
                     <tr>
                     <th scope="col">Symbol</th>
                     <th scope="col">Open</th>

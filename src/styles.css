@@ -26,7 +26,7 @@ body {
     margin-top: 0;
     max-height: 143px;
     padding-left: 0;
-    width: calc(300px + 1rem);
+    width: calc(398px + 1rem);
     position: absolute;
     background-color: white;
   }
@@ -39,7 +39,7 @@ body {
   
   .suggestion-active,
   .suggestions li:hover {
-    background-color: #a9e0e0;
+    background-color:rgba(226, 111, 255, 0.649);
     color: #000000;
     cursor: pointer;
     font-weight: 700;
