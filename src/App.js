@@ -1,6 +1,7 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from "./Home";
 import Admin from "./components/Admin/Admin";
+import Login from "./components/Login/Login"
 //import Login from "./components/Login/Login";
 
 const App = ()=>{
@@ -9,6 +10,7 @@ const App = ()=>{
             <Routes>
                 <Route path='/' element= {<Home/>} />
                 <Route path='/admin' element = {<Admin/> } />
+                <Route path='/login' element = {<Login/>} />
             </Routes>
         </BrowserRouter>
         

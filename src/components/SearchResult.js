@@ -14,11 +14,11 @@ const SeachResult =(props)=>{
                 </thead>
                 <tbody className="tbody">
                     <tr>
-                    <td>StockName</td>
-                    <td>{props.stock.userId}</td>
-                    <td>{props.stock.id}</td>
-                    <td>{props.stock.title}</td>
-                    <td>12,348.12</td>
+                    <td>{props.stock.symbol}</td>
+                    <td>{props.stock.open}</td>
+                    <td>{props.stock.high}</td>
+                    <td>{props.stock.low}</td>
+                    <td>{props.stock.close}</td>
                     </tr>
                     
                 </tbody>
