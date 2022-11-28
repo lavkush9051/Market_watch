@@ -1,90 +1,66 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from "react";
+import Header from "../layout/Header";
+import AuthUser from "../AuthUser";
 
-import Card from '../UI/Card';
-import classes from './Login.module.css';
-import Button from '../UI/Button';
+const Login = () => {
+  const [email,setEmail] = useState();
+  const [password,setPassword] = useState();
+  const {setToken} = AuthUser();
 
-const Login = (props) => {
-  const [enteredEmail, setEnteredEmail] = useState('');
-  const [emailIsValid, setEmailIsValid] = useState();
-  const [enteredPassword, setEnteredPassword] = useState('');
-  const [passwordIsValid, setPasswordIsValid] = useState();
-  const [formIsValid, setFormIsValid] = useState(false);
+  // on form submit
+  const submitForm =()=>{
+    
+    //console.log({email:email,password:password});
+    let credentials ={
+      username:email,
+      password:password
+    }
+    const url = 'http://localhost:9090/token'
+    fetch(url, {
+      method: 'POST',
+      //mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
 
-  useEffect(() => {
-    const identifier = setTimeout(() => {
-      console.log('Checking form validity!');
-      setFormIsValid(
-        enteredEmail.includes('@') && enteredPassword.trim().length > 6
-      );
-    }, 500);
-
-    return () => {
-      console.log('CLEANUP');
-      clearTimeout(identifier);
-    };
-  }, [enteredEmail, enteredPassword]);
-
-  const emailChangeHandler = (event) => {
-    setEnteredEmail(event.target.value);
-  };
-
-  const passwordChangeHandler = (event) => {
-    setEnteredPassword(event.target.value);
-  };
-
-  const validateEmailHandler = () => {
-    setEmailIsValid(enteredEmail.includes('@'));
-  };
-
-  const validatePasswordHandler = () => {
-    setPasswordIsValid(enteredPassword.trim().length > 6);
-  };
-
-  const submitHandler = (event) => {
-    event.preventDefault();
-    props.onLogin(enteredEmail, enteredPassword);
-  };
+      },
+      body: JSON.stringify(credentials),
+    })
+    .then(function(response){
+      response.json().then(function(data) {
+          console.log(data);
+          setToken(data.token);
+      });
+    }).catch(function(error) {
+        console.log('Fetch Error:', error);
+    });
+  }
 
   return (
-    <Card className={classes.login}>
-      <form onSubmit={submitHandler}>
-        <div
-          className={`${classes.control} ${
-            emailIsValid === false ? classes.invalid : ''
-          }`}
-        >
-          <label htmlFor="email">E-Mail</label>
-          <input
-            type="email"
-            id="email"
-            value={enteredEmail}
-            onChange={emailChangeHandler}
-            onBlur={validateEmailHandler}
-          />
+    <div>
+      <Header/>
+   
+    <div className="row justify-content-center pt-5">
+            <div className="col-sm-6">
+                <div className="card p-4">
+                    <h1 className="text-center mb-3">Login </h1>
+                    <div className="form-group">
+                        <label>Email address:</label>
+                        <input type="email" className="form-control" placeholder="Enter email"
+                            onChange={e=>setEmail(e.target.value)}
+                        id="email" />
+                    </div>
+                    <div className="form-group mt-3">
+                        <label>Password:</label>
+                        <input type="password" className="form-control" placeholder="Enter password"
+                            onChange={e => setPassword(e.target.value)}
+                        id="pwd" />
+                    </div>
+                    <button type="button" onClick={submitForm} className="btn btn-primary mt-4">Login</button>
+                </div>
+            </div>
         </div>
-        <div
-          className={`${classes.control} ${
-            passwordIsValid === false ? classes.invalid : ''
-          }`}
-        >
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={enteredPassword}
-            onChange={passwordChangeHandler}
-            onBlur={validatePasswordHandler}
-          />
-        </div>
-        <div className={classes.actions}>
-          <Button type="submit" className={classes.btn} disabled={!formIsValid}>
-            Login
-          </Button>
-        </div>
-      </form>
-    </Card>
-  );
+      </div>
+    );
 };
-
 export default Login;
