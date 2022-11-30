@@ -1,4 +1,4 @@
-.main{
+/* .main{
 text-align: center;
 justify-content: center;
 display: flex;
@@ -78,4 +78,89 @@ button{
 
 /*a{
 color:blue;
-}*/
+}*/ */
+
+*{
+  margin: auto;
+}
+.mainclass{
+  margin-top: 100px;
+
+  }
+  .submain{
+    box-shadow: 1px 12px 13px 12px rgb(153 121 156);
+/* padding-top: 11px; */
+    border-radius: 60px;
+    width: fit-content;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .imgs{
+  padding-top: 20px;
+  Justify-content: center; 
+  display: flex;
+  }
+  .containerimage{
+  background-color:rgb(223, 221, 221);
+  border-radius: 150px; 
+  align-items: center;
+  display: flex;
+  height: 115px; 
+  width: 115px;
+  }
+  .login{
+    text-align: center;
+  }
+  .profile{
+    height: 100px;
+    width: 100px;
+    border-radius: 130px;
+  }
+  .inputField{
+    width: 300px;
+    height: 50px;
+    border-radius: 60px;
+    box-shadow: inset 0px 0px 25px 0px #888;
+    border:none;
+    outline: none;
+    background-color: #fff;
+    font-size: 20px;
+    margin: 2px;
+    width: 200px;
+    text-align: center;
+    font-size: large;
+  }
+    
+.admin-text{
+  font-size: larger;
+  font-weight: bold;
+}
+  
+  .second-input{
+    padding-top:20px;
+  }
+  .login-button{
+    width: 150px;
+    height: 50px;
+    border-radius: 60px;
+    background-color: #4e1566;
+    color: white;
+    font-size: large;
+    border: none;
+    margin-bottom: 25px;
+  }
+  .login_button{
+    padding-top: 16px;
+  }
+  .link{
+    font-size: 25px;
+    font-weight: 400;
+  }
+  
+  /*a{
+  color:blue;
+  }*/
+  
+  

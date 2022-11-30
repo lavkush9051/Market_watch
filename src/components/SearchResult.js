@@ -12,8 +12,15 @@ const SeachResult =(props)=>{
                     <th scope="col">Close</th>
                     </tr>
                 </thead>
-                <tbody className="tbody">
+                {(typeof props.stock.symbol=="undefined") ?(
+                <>
+                    <tbody><tr><td>no records found</td></tr></tbody>
+                </>
+                ):(
+                    <>
+                    <tbody className="tbody">
                     <tr>
+                        {/* {console.log("symbol",props.stock.symbol)} */}
                     <td>{props.stock.symbol}</td>
                     <td>{props.stock.open}</td>
                     <td>{props.stock.high}</td>
@@ -22,6 +29,9 @@ const SeachResult =(props)=>{
                     </tr>
                     
                 </tbody>
+                    </>
+                )}
+                
             </table>
         </div>
             

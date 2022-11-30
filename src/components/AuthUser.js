@@ -7,7 +7,7 @@ const AuthUser = () =>{
     const getToken = () =>{
         const tokenString = sessionStorage.getItem('token');
         const userToken = JSON.parse(tokenString);
-        //console.log("userToken:",userToken)
+       // console.log("userToken:",userToken)
         return userToken;
     }
 
@@ -21,7 +21,7 @@ const AuthUser = () =>{
 
     const logout =()=>{
         sessionStorage.clear()
-        navigate('/');
+        navigate('/login');
     }
 
     return {

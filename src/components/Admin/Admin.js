@@ -1,13 +1,16 @@
 import * as XLSX from "xlsx";
-import "../layout/Header.css";
+// import "../layout/Header.css";
 import "./admin.css";
-import Header from "../layout/Header";
+import AdminHeader from "../layout/AdminHeader";
 import Button from "../UI/Button";
 import { useState } from "react";
+import AuthUser from "../AuthUser";
 
 const Admin = () => {
   const [data, setData] = useState([]);
+  const {getToken} = AuthUser()
 
+  //select file
   const handleFile = async (e) => {
     const file = e.target.files[0];
     const data = await file.arrayBuffer();
@@ -17,49 +20,64 @@ const Admin = () => {
 
     const jsonParsedData = jsonData.map(function (elm) {
       return {
-        SYMBOL: elm.SYMBOL,
-        OPEN: elm.OPEN,
-        HIGH: elm.HIGH,
-        LOW: elm.LOW,
-        CLOSE: elm.CLOSE,
+        symbol: elm.SYMBOL,
+        open: elm.OPEN,
+        high: elm.HIGH,
+        low: elm.LOW,
+        close: elm.CLOSE,
       };
     });
     console.log("-----filtered data---------");
     //console.log(jsonParsedData);
     setData(jsonParsedData);
   };
+
+// clear
+  const clearFile =() =>{
+    if(data.length===0){
+      alert("Choose excel file")
+      return
+    }
+    window.location.reload(false);
+  }
+
+// update
   const submitFile = () => {
     console.log(data);
-    if(data.length===0){
-        alert("Choose excel file");
-        return;
+    if (data.length === 0) {
+      alert("Choose excel file");
+      return;
     }
-    const url = 'http://localhost:9090/stocks';
-    const stocks = {...data};
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-      body: JSON.stringify(stocks),
-    })
-      .then((response) => {
-        console.log("response", response);
-        if (response.state === 200) {
-          console.log("success");
-        }
+    const url = "http://localhost:9090/stocks";
+    for(let i=0; i<data.length; i++){
+      console.log("converted data..",JSON.stringify(data[i]));
+
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          'Authorization': 'Bearer ' + getToken()
+        },
+        body: JSON.stringify(data[i]),
       })
-      .catch((error) => {
-        console.log("Catch block error: ", error);
-      });
+        .then((response) => {
+          console.log("response", response);
+          if (response.state === 200) {
+            console.log("success");
+          }
+        })
+        .catch((error) => {
+          console.log("Catch block error: ", error);
+        });
+    }
   };
 
   return (
     <div className="container">
-      <Header />
+      <AdminHeader />
       <div className="row">
-        <p style={{ width: "200px", fontWeight: "bold" }}>
+        <p style={{ width: "auto", fontWeight: "bold",fontSize:"large" }}>
           Choose file to upload
         </p>
       </div>
@@ -70,8 +88,11 @@ const Admin = () => {
           onChange={(e) => handleFile(e)}
         />
       </div>
-      <div className="row">
-        <Button onClick={submitFile}>Update db </Button>
+      <div className="button">
+        <span className="clear">
+          <Button onClick={clearFile}>Clear</Button>
+        </span>
+        <Button onClick={submitFile}>Upload</Button>
       </div>
     </div>
   );

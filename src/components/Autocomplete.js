@@ -105,7 +105,7 @@ class Autocomplete extends Component {
     if (showSuggestions && userInput) {
       if (filteredSuggestions.length) {
         suggestionsListComponent = (
-          <ul class="suggestions">
+          <ul className="suggestions">
             {filteredSuggestions.map((suggestion, index) => {
               let className;
 
@@ -141,12 +141,12 @@ class Autocomplete extends Component {
       
       <form className="input__wrapper" onSubmit={submitHandler}>
           <input style={{width:"415px",borderRadius: "5px"}}
-            type="text" placeholder="Serach Stock"
+            type="text" placeholder="Serach stock"
             onChange={onChange}
             onKeyDown={onKeyDown}
             value={userInput}
           />
-          <Button type="submit" >search</Button>
+          <Button type="submit" >Search</Button>
           {suggestionsListComponent}
       </form>
 
