@@ -1,13 +1,12 @@
 .tbody{
-    height: 50px;
-    background-color: #dad6d6;
+    height: 98px;
+    background-color: #f8fbf8;
     display:flexbox;
     align-content: center;
-
 }
 
 .th{
-    background-color:#dad6d6;
+    background-color:#f8fbf8;
     align-items: center;
     align-content: center;
     font-weight: 300;
@@ -25,7 +24,7 @@
 }
 
 .thead-dark.space{
-    background-color: rgb(215, 145, 233);
+    background-color:rgb(89 88 100 / 57%);
     padding: 100px;
 }
 .border{
@@ -41,11 +40,22 @@ table.table-border{
     padding: 20px;
     color: rgb(0, 0, 0);
     font-weight: bold;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.851);
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.851);
     border-radius: 5px;
-    background-color: #dad6d6;
+    background-color: #f8fbf8;
     opacity: 100%;
     width: auto;
     margin-bottom: 20px;
 
   }
+
+.table > tbody{
+    vertical-align: middle;
+}
+tbody, td, tfoot, th, thead, tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    width: 130px;
+    height: 54px;
+}

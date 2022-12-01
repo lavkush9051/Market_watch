@@ -1,15 +1,12 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom";
-import Home from "./Home";
-import Admin from "./components/Admin/Admin";
-const App = ()=>{
-    return(
-        <BrowserRouter>
-            <Routes>
-                <Route path='/' element= {<Home/>} />
-                <Route path='/Admin' element = {<Admin/> } />
-            </Routes>
-        </BrowserRouter>
-        
-    )
-}
+import AuthUser from "./components/AuthUser";
+import AuthGuest from "./nav/AuthGuest";
+import Guest from "./nav/Guest";
+
+const App = () => {
+  const { getToken } = AuthUser();
+  if (!getToken()) {
+    return <Guest />;
+  }
+  return <AuthGuest />;
+};
 export default App;
