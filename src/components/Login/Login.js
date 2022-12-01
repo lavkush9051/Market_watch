@@ -26,6 +26,11 @@ const Login = () => {
       body: JSON.stringify(credentials),
     })
       .then(function (response) {
+        if(response.status===406){
+          console.log("not found")
+          alert("Invalid Username or Password")
+          return;
+        }
         response.json().then(function (data) {
           console.log(data);
           setToken(data.token);

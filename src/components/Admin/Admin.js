@@ -2,13 +2,14 @@ import * as XLSX from "xlsx";
 // import "../layout/Header.css";
 import "./admin.css";
 import AdminHeader from "../layout/AdminHeader";
-import Button from "../UI/Button";
 import { useState } from "react";
 import AuthUser from "../AuthUser";
+
 
 const Admin = () => {
   const [data, setData] = useState([]);
   const {getToken} = AuthUser()
+  const [disable, setDisable] = useState(true);
 
   //select file
   const handleFile = async (e) => {
@@ -30,6 +31,7 @@ const Admin = () => {
     console.log("-----filtered data---------");
     //console.log(jsonParsedData);
     setData(jsonParsedData);
+    setDisable(false)
   };
 
 // clear
@@ -76,23 +78,23 @@ const Admin = () => {
   return (
     <div className="container">
       <AdminHeader />
-      <div className="row">
+      {/* <div className="row">
         <p style={{ width: "auto", fontWeight: "bold",fontSize:"large" }}>
           Choose file to upload
         </p>
-      </div>
+      </div> */}
       <div className="row" style={{ margin: "50px" }}>
         <input
-          style={{ width: "260px" }}
+          style={{ width: "500px" }}
           type="file"
           onChange={(e) => handleFile(e)}
         />
       </div>
       <div className="button">
         <span className="clear">
-          <Button onClick={clearFile}>Clear</Button>
+        <button className="update-btn-admin" disabled={disable} onClick={clearFile} >Clear</button>
         </span>
-        <Button onClick={submitFile}>Upload</Button>
+        <button className="update-btn-admin" disabled={disable} onClick={submitFile} >Upload</button>
       </div>
     </div>
   );

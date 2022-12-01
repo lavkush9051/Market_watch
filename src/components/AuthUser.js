@@ -16,7 +16,7 @@ const AuthUser = () =>{
     const saveToken =(token) =>{
         sessionStorage.setItem('token',JSON.stringify(token));
         setToken(token);
-        navigate('/admin');
+        navigate('/adminpanel');
     }
 
     const logout =()=>{
