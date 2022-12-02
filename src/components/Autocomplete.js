@@ -48,7 +48,6 @@ class Autocomplete extends Component {
   };
 
   onClick = e => {
-    //console.log(e.currentTarget.innerText)
     enteredval = e.currentTarget.innerText;
     this.setState({
       activeSuggestion: 0,
@@ -141,7 +140,7 @@ class Autocomplete extends Component {
       
       <form className="input__wrapper" onSubmit={submitHandler}>
           <input style={{width:"415px",borderRadius: "5px"}}
-            type="text" placeholder="Serach stock"
+            type="text" placeholder="Search stock"
             onChange={onChange}
             onKeyDown={onKeyDown}
             value={userInput}

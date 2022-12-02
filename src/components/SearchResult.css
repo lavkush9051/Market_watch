@@ -12,11 +12,7 @@
     font-weight: 300;
 
 }
-.caption{
-    text-align: center;
-    background-color: rgb(145, 78, 222);
-    color: crimson;
-}
+
 
 .wrap{
     
@@ -27,12 +23,7 @@
     background-color:rgb(89 88 100 / 57%);
     padding: 100px;
 }
-.border{
-    border: #e11f1f;
-    border-color: #e11f1f;
-    border-width: 5px;
 
-}
 table.table-border{
     border:0px none rgb(0, 0, 0);
     margin-top:70px;

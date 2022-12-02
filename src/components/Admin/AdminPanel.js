@@ -1,11 +1,14 @@
 import "./adminPanel.css";
-import databaseImg from "../../assets/database1.png";
-import AdminHeader from "../layout/AdminHeader";
+import upload from "../../assets/Upload.png";
+import Header from "../layout/Header";
 import { useNavigate } from "react-router-dom";
 
 const AdminPanel = () => {
   const navigate = useNavigate()
- 
+  const header = {
+    heading:"Admin Panel",
+    logout: "Logout"
+  }
 
   const updateBtn =() =>{
     navigate('/admin');
@@ -13,17 +16,11 @@ const AdminPanel = () => {
 
   return (
     <div>
-      <AdminHeader />
-      {/* <div className="admincard">
-        <img src={image} alt="Avatar" />
-        <div className="admincard-container">
-          <Button>Update Database</Button>
-        </div>
-      </div> */}
+      <Header items ={[header.heading,header.logout]} />
       <div className="grid-container">
-        <div style={{width:"274px"}}>
+        <div style={{marginLeft:"21px"}}>
         <div className="grid-item">
-          <img className="login-img" src={databaseImg} alt="Avatar"/>
+          <img className="login-img" src={upload} alt="Avatar"/>
         </div>
         <div >
           <button onClick={updateBtn} className="update-btn">Update</button>

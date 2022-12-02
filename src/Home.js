@@ -10,6 +10,7 @@ require("./styles.css");
 function Home() {
   const [suggestionList, setSuggestion] = useState([]);
   const [data, setData] = useState([]);
+  const header={heading:"Welcome To Market Watch App"}
 
   const apiGet = () => {
     fetch("http://localhost:9090/getAllStocks")
@@ -44,7 +45,7 @@ function Home() {
   };
   return (
     <div className="home">
-      <Header />
+      <Header items={[header.heading]} />
       <Marquee style={{marginTop:"95px"}}>
       Welcome to Market Watch! We provide information regarding all leading stocks listed on NSE. Get OHLC data for any stock at the click of a button!
 </Marquee>
